@@ -1,0 +1,526 @@
+
+/* =========================
+   全体設定
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: sans-serif;
+  background: #f4f7fb;
+  color: #333;
+}
+
+/* ヘッダー */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  color: #1675c5;
+  font-size: 2rem;
+}
+
+header p {
+  color: #777;
+}
+
+/* コンテンツ */
+.container {
+  max-width: 850px;
+  margin: auto;
+}
+
+.section {
+  background: white;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-left: 4px solid #168bd2;
+  padding-left: 12px;
+}
+
+/* 共通ボタン設定 */
+button {
+  display: block;
+  margin-bottom: 15px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   ① 色が変化するボタン
+========================= */
+
+/* ホバーで変化 */
+.fade-button {
+  background: #0bd;
+}
+
+.fade-button:hover {
+  background: #05b;
+}
+
+/* クリックで変化 */
+#fade-button-js {
+  background: #07f;
+}
+
+/* ピンク色に変化 */
+.fade-button-pink {
+  background: #f77;
+}
+
+.fade-button-pink:hover {
+  background: #fcc;
+}
+
+/* ランダムに変化 */
+#fade-button-random {
+  background: #07f;
+}
+
+/* =========================
+   ② 背景が流れるボタン
+========================= */
+
+/* 左から右に流れる */
+.flow-button {
+  background: linear-gradient(90deg, #0bd, #05b);
+  background-size: 200% 100%;
+}
+
+.flow-button:hover {
+  background-position: -100% 0;
+}
+
+/* カーソルの位置で色が変化 */
+#flow-button-js {
+  background: linear-gradient(90deg, #0bd, #0f0);
+  background-size: 200% 100%;
+}
+
+/* =========================
+   ③ 押し込まれるボタン
+========================= */
+
+/* 押し込まれているボタン */
+.press-button {
+  background: #0bd;
+  box-shadow: 0 4px 4px rgba(0,126,148,0.4);
+}
+
+.press-button:hover {
+  translate: 0 2px;
+  box-shadow: 0 2px 4px rgba(0,126,148,0.2);
+}
+
+/* いいねボタン */
+.like-button-js {
+  background: #05b;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.like-button-js:hover {
+  translate: 0 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.like-button-js.liked {
+  background: #037;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   ④ グラデーション・ライン
+========================= */
+
+/* グラデーションボタン */
+.btn-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 320px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.btn-inner {
+  margin: 6px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background: white;
+  color: #1675c5;
+}
+
+.btn-container::before {
+  content: "";
+  background: linear-gradient(90deg, #0bd, #f6b);
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  animation: rotate-line 4s linear infinite;
+}
+
+@keyframes rotate-line {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ぐるっとラインが囲む */
+.btn-container-adv {
+  position: relative;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+
+.btn-inner-adv {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #fff;
+  color: #333;
+}
+
+.btn-svg-adv {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-rect-adv {
+  fill: none;
+  stroke: #0bd;
+  stroke-width: 6px;
+  stroke-dasharray: 400%;
+  stroke-dashoffset: 400%;
+}
+
+.btn-rect-adv.active {
+  animation: line 1s forwards;
+}
+
+@keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* =========================
+   ⑤ 矢印が動く・変わる
+========================= */
+
+/* 矢印が動く */
+.btn-icon {
+  position: relative;
+  padding: 1rem 2.5rem 1rem 1.5rem;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #0bd;
+}
+
+.btn-icon::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 4px);
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  rotate: 45deg;
+  transition: .5s;
+}
+
+.btn-icon:hover::after {
+  right: 10px;
+}
+
+/* 矢印が変わる */
+.btn-change {
+  width: 180px;
+  position: relative;
+  padding: 1rem 1.5rem;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #05b;
+}
+
+.btn-change::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 4px);
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  rotate: 45deg;
+  transition: .5s;
+}
+
+.btn-change.done::after {
+  top: calc(50% - 6px);
+  width: 12px;
+  height: 6px;
+  rotate: 125deg;
+}
+
+/* =========================
+   ⑥ 光るボタン
+========================= */
+
+/* キラーンと光る */
+.btn-shine {
+  position: relative;
+  padding: 1rem 1.5rem;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #0bd;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+.btn-shine:hover::before {
+  translate: 300% 0;
+  transition: .5s;
+}
+
+/* キラキラ輝く */
+.btn-sparkle {
+  position: relative;
+  padding: 1rem 1.5rem;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #05b;
+  overflow: hidden;
+}
+
+.btn-sparkle .sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255,255,255,.5);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+  animation: sparkle-animation 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle-animation {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   フッター
+========================= */
+
+footer {
+  text-align: center;
+  color: #999;
+  margin-top: 40px;
+  font-size: 0.85rem;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  body {
+    padding: 25px 15px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  button {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+   ⑦ 回転するボタン
+========================= */
+
+/* くるっと回転 */
+.btn-rotate {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #0bd;
+  transition: rotate .6s;
+  transform-style: preserve-3d;
+}
+
+.btn-rotate-front,
+.btn-rotate-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.btn-rotate-front {
+  background-color: #0bd;
+}
+
+.btn-rotate-back {
+  background-color: #05b;
+  rotate: x 180deg;
+}
+
+.btn-rotate:hover {
+  rotate: x 180deg;
+}
+
+
+/* =========================
+   回転し続けるボタン
+========================= */
+/* 回転し続けるボタン */
+.btn-container-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 2rem 0;
+}
+
+.btn-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.btn-circle::before,
+.btn-circle::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.btn-circle::before {
+  background: #0bd;
+  border-radius: 50% 50% 50% 70% / 50% 50% 70% 60%;
+  animation: border-animation 6s infinite linear;
+}
+
+.btn-circle::after {
+  background: #f3a;
+  border-radius: 70% 40% 50% 50% / 50%;
+  animation: border-animation 4s infinite linear;
+}
+
+@keyframes border-animation {
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* 高速回転 */
+.btn-circle.fast-spin::before,
+.btn-circle.fast-spin::after {
+  animation-duration: .4s;
+}

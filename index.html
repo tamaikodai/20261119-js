@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Animations</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <h1>Button Animations</h1>
+  <p>↓show features↓</p>
+</header>
+
+<main class="container">
+
+  <!-- ① 色が変化するボタン -->
+  <section class="section">
+    <h2>Color</h2>
+
+    <button class="fade-button">Hover</button>
+    <button id="fade-button-js">Click</button>
+    <button class="fade-button-pink">→Pink</button>
+    <button id="fade-button-random">Random</button>
+  </section>
+
+  <!-- ② 背景が流れるボタン -->
+  <section class="section">
+    <h2>Background</h2>
+
+    <button class="flow-button">Left→Right</button>
+    <button id="flow-button-js">Cursor position</button>
+  </section>
+
+  <!-- ③ 押し込まれるボタン -->
+
+<section class="section">
+  <h2>③ Press-in Buttons</h2>
+
+  <button class="press-button">Press-in Button</button>
+  <button class="like-button-js">👍 Like!</button>
+</section>
+
+<!-- ④ Gradient & Border Buttons -->
+<section class="section">
+  <h2>④ Gradient & Border Buttons</h2>
+
+  <div class="btn-container">
+    <button class="btn-inner">Gradient Button</button>
+  </div>
+
+  <div class="btn-container-adv">
+    <button class="btn-inner-adv">Animated Border</button>
+    <svg class="btn-svg-adv" aria-hidden="true">
+      <rect class="btn-rect-adv"
+        x="3" y="3"
+        width="calc(100% - 6px)"
+        height="calc(100% - 6px)"
+        rx="12" />
+    </svg>
+  </div>
+</section>
+
+<!-- ⑤ Arrow Buttons -->
+<section class="section">
+  <h2>⑤ Arrow Buttons</h2>
+
+  <button class="btn-icon">Moving Arrow</button>
+  <button class="btn-change">Change Arrow</button>
+</section>
+
+<!-- ⑥ Shiny Buttons -->
+<section class="section">
+  <h2>⑥ Shiny Buttons</h2>
+
+  <button class="btn-shine">Shining Button</button>
+  <button class="btn-sparkle">Sparkling Button</button>
+</section>
+
+<!-- ⑦ Rotating Buttons -->
+<section class="section">
+  <h2>⑦ Rotating Buttons</h2>
+
+  <button class="btn-rotate">
+    <div class="btn-rotate-front">Flip Button</div>
+    <div class="btn-rotate-back">Flipped!</div>
+  </button>
+
+  <div class="btn-container-circle">
+    <button class="btn-circle">Keep Spinning</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Button Animation Gallery
+</footer>
+
+</body>
+</html>
